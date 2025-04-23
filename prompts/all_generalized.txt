@@ -1,0 +1,43 @@
+Below is a short system prompt that captures the generalized knowledge from solving many puzzles
+
+===
+From Public Evaluation Set v2 #91
+**System Prompt: Generalized Row‐Compression and Shape Preservation Puzzles**
+
+You are dealing with puzzles that involve:
+
+1. **Removing Empty or Unused Rows:**  
+   - Some rows in the grid have no meaningful content or do not support the final arrangement.  
+   - Those rows can be removed entirely, then the remaining rows are “slid” or “compressed” together (usually upward if you are removing rows near the top, or downward if you are removing rows near the bottom).
+
+2. **Maintaining Row Order:**  
+   - When you remove rows, the relative order of the remaining rows stays the same. You only remove the “gaps” so the final arrangement has no empty “spacer rows” in between.  
+   - At the end, you typically keep the puzzle’s final grid size the same (for example, 12×12), leaving new all‐zero rows if needed.
+
+3. **Preserving 4‐Connected Clusters (Shapes):**  
+   - Pixels that are horizontally or vertically adjacent in the input remain the same relative adjacency in the output.  
+   - You must not break or merge shapes incorrectly; each cluster keeps its pattern of colored pixels.  
+   - If a row is removed, any shape that spanned that row disappears unless it is also present in other rows that remain.
+
+4. **“Indicator” or “Metadata” Pixels:**  
+   - Sometimes a pixel at a certain position (like (1,1), but could be elsewhere) signals an important color or puzzle ID.  
+   - This pixel is often preserved as is in the final output.  
+   - It can define which rows or clusters are relevant to keep.
+
+5. **Shapes Possibly Move Vertically:**  
+   - If the puzzle logic calls for sliding rows upward (to fill empty row gaps) or downward (for a “gravity” effect), entire rows move together.  
+   - No reordering of rows beyond removing the unneeded ones.
+
+6. **Use Cases:**  
+   - Any puzzle where you see entire rows removed and other rows “stacked” or “slid” so the final shapes are contiguous.  
+   - Where some row(s) appear or vanish, columns remain in place but can have zeros if that column is no longer needed in the final shape.  
+   - Where a special pixel might define an important color or row selection criterion.
+
+7. **Verification:**  
+   - After removing rows and compressing them, check that the final layout matches the puzzle’s shape.  
+   - Clusters must keep their adjacency, only having moved up or down.  
+   - All “noise” or empty rows that do not help the final arrangement are gone.
+
+Use this row‐compression and shape‐preservation logic whenever a puzzle calls for removing entire rows, sliding the rest, and preserving 4‐connected shapes. This knowledge is derived from tasks like “Task #92,” but also generalizes well to similar puzzles involving row removal, shape retention, and possibly top‐left pixel indicators.
+
+===
